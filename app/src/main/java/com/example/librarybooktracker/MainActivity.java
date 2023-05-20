@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
                             // Perform desired operations with the book data
                             Premium premium = new Premium(days);
-                            premium.computePayment();
-                            price.setText(""+premium.returnPayment());
+                            //premium.computePayment();
+                            price.setText(""+premium.computePayment());
 
                             return;
                         }
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
                             //Perform desired operations with the book data
                             Regular regular = new Regular(days);
-                            regular.computePayment();
-                            price.setText(""+regular.returnPayment());
+                            //regular.computePayment();
+                            price.setText(""+regular.computePayment());
 
                             return;
                         }

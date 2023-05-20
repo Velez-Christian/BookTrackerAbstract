@@ -5,10 +5,11 @@ public class Regular extends Book {
         super(numberOfDays);
     }
 
-    public void computePayment() {
+    public int computePayment() {
         int totalRegularPayment;
         totalRegularPayment = 20 * getNumberOfDays();
 
-        setTotalPayment(totalRegularPayment);
+        //setTotalPayment(totalRegularPayment);
+        return totalRegularPayment;
     }
 }

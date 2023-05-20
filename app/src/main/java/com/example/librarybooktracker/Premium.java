@@ -6,10 +6,12 @@ public class Premium extends Book {
         super(numberOfDays);
     }
 
-    public void computePayment() {
+    public int computePayment() {
         int totalPremiumPayment;
         totalPremiumPayment = (int) (50.00 * (7 + (getNumberOfDays() - 7)) + 25.00 * (getNumberOfDays() - 7));
 
-        setTotalPayment(totalPremiumPayment);
+        //setTotalPayment(totalPremiumPayment);
+
+        return totalPremiumPayment;
     }
 }
