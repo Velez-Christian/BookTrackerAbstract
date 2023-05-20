@@ -50,18 +50,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "Hi", Toast.LENGTH_SHORT).show();
                 String code = bookCode.getText().toString();
+                String day = daysBorrowed.getText().toString();
+                int days = Integer.parseInt(daysBorrowed.getText().toString());
 
-                if (!code.isEmpty()) {
+                if (!code.isEmpty() && !day.isEmpty()) {
                     if (code.length() == 6) {
                         if (code.substring(0,2).equals("PB")) {
                             //Toast.makeText(MainActivity.this, "Premium", Toast.LENGTH_SHORT).show();
                             performSearch();
+
+                            // Perform desired operations with the book data
+                            Premium premium = new Premium(days);
+                            premium.computePayment();
+                            price.setText(""+premium.returnPayment());
 
                             return;
                         }
                         else if (code.substring(0,2).equals("RB")) {
                             //Toast.makeText(MainActivity.this, "Regular", Toast.LENGTH_SHORT).show();
                             performSearch();
+
+                            //Perform desired operations with the book data
+                            Regular regular = new Regular(days);
+                            regular.computePayment();
+                            price.setText(""+regular.returnPayment());
 
                             return;
                         }
@@ -105,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                                     title.setText(titles);
                                     author.setText(authors);
 
-                                    // Perform desired operations with the book data
                                 } else {
                                     // Book is already borrowed
                                     Toast.makeText(MainActivity.this, "Book is already borrowed", Toast.LENGTH_SHORT).show();
